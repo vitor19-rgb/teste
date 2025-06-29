@@ -67,7 +67,7 @@
   align-items: center;
   margin-bottom: 20px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #eaebe5;
 }
 
 .accessibility-modal-title {
@@ -117,12 +117,12 @@
   padding: 12px 16px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  background: #f9fafb;
+  background: #fbf9fa;
   transition: all 0.2s ease-in-out;
 }
 
 .accessibility-option:hover {
-  background: #f3f4f6;
+  background: #f6f6f3;
   border-color: #d1d5db;
 }
 
@@ -242,7 +242,7 @@ body.high-contrast button:focus {
 /* Dark Mode - CORES SÓLIDAS SEM TRANSPARÊNCIA */
 body.dark-mode {
   background: #0f172a !important;
-  color: #f1f5f9 !important;
+  color: #f9f1f7 !important;
 }
 
 /* Backgrounds escuros sólidos */
@@ -288,8 +288,8 @@ body.dark-mode .text-transparent {
   background: none !important;
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
   text-shadow: none !important;
   border: none !important;
   outline: none !important;
@@ -304,8 +304,8 @@ body.dark-mode .bg-gradient-to-r.from-slate-800.to-blue-600 {
   background: none !important;
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #1666b6 !important;
   text-shadow: none !important;
   border: none !important;
   outline: none !important;
@@ -318,7 +318,7 @@ body.dark-mode .text-gray-800,
 body.dark-mode .text-slate-600,
 body.dark-mode .text-slate-700,
 body.dark-mode .text-slate-800 {
-  color: #f1f5f9 !important;
+  color: #1666b6 !important;
 }
 
 /* MANTER CORES AZUIS E VERDES NA TELA PRINCIPAL - NÃO ALTERAR */
@@ -330,7 +330,7 @@ body.dark-mode .text-blue-600,
 body.dark-mode .text-blue-700,
 body.dark-mode .text-blue-800,
 body.dark-mode .text-blue-900 {
-  color: #000000 !important; /* Preto apenas no resumo/relatório */
+  color: #60a5fa !important; /* Preto apenas no resumo/relatório */
 }
 
 body.dark-mode .text-green-600,
@@ -341,21 +341,21 @@ body.dark-mode .text-emerald-900,
 body.dark-mode .text-green-700,
 body.dark-mode .text-green-800,
 body.dark-mode .text-green-900 {
-  color: #000000 !important; /* Preto apenas no resumo/relatório */
+  color: #059669 !important; /* Preto apenas no resumo/relatório */
 }
 
 body.dark-mode .text-red-600,
 body.dark-mode .text-red-700,
 body.dark-mode .text-red-800,
 body.dark-mode .text-red-900 {
-  color: #000000 !important; /* Preto apenas no resumo/relatório */
+  color: #dc2626 !important; /* Preto apenas no resumo/relatório */
 }
 
 body.dark-mode .text-indigo-600,
 body.dark-mode .text-indigo-700,
 body.dark-mode .text-indigo-800,
 body.dark-mode .text-indigo-900 {
-  color: #000000 !important; /* Preto apenas no resumo/relatório */
+  color: #d817e6 !important; /* Preto apenas no resumo/relatório */
 }
 
 body.dark-mode .text-purple-600,
@@ -385,18 +385,18 @@ body.dark-mode .text-cyan-800 {
 /* Textos específicos do OrçaMais */
 body.dark-mode .text-blue-100,
 body.dark-mode .text-blue-200 {
-  color: #dbeafe !important;
+  color: #feecdb !important;
 }
 
 body.dark-mode .text-emerald-100,
 body.dark-mode .text-green-100 {
-  color: #d1fae5 !important;
+  color: #f1f5f9 !important;
 }
 
 body.dark-mode .text-red-100,
 body.dark-mode .text-red-200,
 body.dark-mode .text-red-300 {
-  color: #fee2e2 !important;
+  color: #fff !important;
 }
 
 /* Inputs e selects */
@@ -404,14 +404,14 @@ body.dark-mode input,
 body.dark-mode select,
 body.dark-mode textarea {
   background-color: #374151 !important;
-  color: #f9fafb !important;
+  color: #15a870 !important;
   border-color: #4b5563 !important;
 }
 
 body.dark-mode input::placeholder,
 body.dark-mode select::placeholder,
 body.dark-mode textarea::placeholder {
-  color: #9ca3af !important;
+  color: #15a870 !important;
 }
 
 /* Sombras adaptadas */
@@ -432,7 +432,7 @@ body.dark-mode .border-red-200,
 body.dark-mode .border-indigo-200,
 body.dark-mode .border-gray-200,
 body.dark-mode .border-gray-300 {
-  border-color: #4b5563 !important;
+  border-color: #60634b !important;
 }
 
 /* Botões específicos */
@@ -460,7 +460,7 @@ body.dark-mode .accessibility-option {
 }
 
 body.dark-mode .accessibility-option-label {
-  color: #f1f5f9 !important;
+  color: #fff !important;
 }
 
 /* Large Font Mode */
@@ -494,7 +494,7 @@ body.large-font .text-xs {
   top: 80px;
   right: 20px;
   background: #059669;
-  color: white;
+  color: #f1f5f9;
   padding: 16px 20px;
   border-radius: 8px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);

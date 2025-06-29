@@ -556,13 +556,13 @@ export const AccessibilityEnhancedMainScreen: React.FC<MainScreenProps> = ({ onN
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="font-semibold text-slate-800 text-base truncate">{transaction.description}</p>
-                          <div className="flex items-center text-sm text-slate-600 mt-1">
-                            <span>{transaction.date}</span>
-                            <span className="mx-2" aria-hidden="true">•</span>
-                            <span className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(transaction.category)} truncate`}>
-                              {transaction.category}
-                            </span>
-                          </div>
+                          <div className="flex flex-wrap items-center text-sm text-slate-600 mt-1 gap-x-2 gap-y-1">
+  <span>{transaction.date}</span>
+  <span className="mx-2 hidden sm:inline" aria-hidden="true">•</span>
+  <span className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(transaction.category)} break-all`}>
+    {transaction.category}
+  </span>
+</div>
                         </div>
                       </div>
 
