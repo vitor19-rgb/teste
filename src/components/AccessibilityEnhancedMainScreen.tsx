@@ -567,11 +567,14 @@ export const AccessibilityEnhancedMainScreen: React.FC<MainScreenProps> = ({ onN
                       </div>
 
                       <div className="flex items-center ml-4 flex-shrink-0">
-                        <span className={`text-lg sm:text-xl font-bold mr-4 ${
-                          transaction.type === 'income' ? 'text-emerald-700' : 'text-red-700'
-                        }`} aria-label={`${transaction.type === 'income' ? 'Receita' : 'Gasto'} de ${formatCurrency(transaction.amount)}`}>
-                          {transaction.type === 'income' ? '+' : '-'}{formatCurrency(transaction.amount)}
-                        </span>
+<span
+  className={`font-bold text-base sm:text-lg ${
+    transaction.type === 'income' ? 'text-emerald-700' : 'text-red-700'
+  }`}
+  aria-label={`${transaction.type === 'income' ? 'Receita' : 'Gasto'} de R$${transaction.type === 'expense' ? ' -' : ' '}${formatCurrency(Math.abs(transaction.amount)).replace('R$', '').trim()}`}
+>
+  R${transaction.type === 'expense' ? ' - ' : ' '}{formatCurrency(Math.abs(transaction.amount)).replace('R$', '').trim()}
+</span>
                         <button
                           onClick={() => deleteTransaction(transaction.id, transaction.description)}
                           className="text-red-500 hover:text-red-700 transition-colors p-2 hover:bg-red-50 rounded-xl min-w-[44px] min-h-[44px] flex items-center justify-center"

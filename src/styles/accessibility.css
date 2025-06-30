@@ -616,6 +616,9 @@ body.high-contrast *:focus {
   outline: 3px solid #ffff00 !important;
   outline-offset: 2px !important;
 }
+body.large-font {
+  font-size: 1.0em;
+}
 
 /* Ensure focus is visible in dark mode - SEM BORDA AZUL */
 body.dark-mode *:focus {

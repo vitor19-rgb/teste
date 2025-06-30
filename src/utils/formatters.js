@@ -6,10 +6,13 @@
  * Formata valor monetário para Real Brasileiro
  */
 export const formatCurrency = (amount) => {
-  return new Intl.NumberFormat('pt-BR', {
+  const isNegative = amount < 0;
+  const absoluteAmount = Math.abs(amount);
+  const formatted = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
-  }).format(amount);
+  }).format(absoluteAmount);
+  return isNegative ? formatted.replace('R$', 'R$ -') : formatted;
 };
 
 /**
