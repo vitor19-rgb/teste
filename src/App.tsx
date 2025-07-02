@@ -19,6 +19,13 @@ const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState<AppScreen>('loading');
   const [user, setUser] = useState(null);
 
+  // Para leitura por voz parar ao trocar de tela
+  useEffect(() => {
+    if (window.accessibilityManager && window.accessibilityManager.isReading) {
+      window.accessibilityManager.stopVoiceReading();
+    }
+  }, [currentScreen]);
+
   useEffect(() => {
     // Simular carregamento inicial
     setTimeout(() => {
@@ -48,7 +55,6 @@ const App: React.FC = () => {
     switch (currentScreen) {
       case 'loading':
         const backgroundPatternSvg = "data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E";
-        
         return (
           <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
             {/* Background Pattern */}
