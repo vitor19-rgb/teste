@@ -20,6 +20,15 @@ const App: React.FC = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+<<<<<<< HEAD
+=======
+    if (window.accessibilityManager && window.accessibilityManager.isReading) {
+      window.accessibilityManager.stopVoiceReading();
+    }
+  }, [currentScreen]);
+
+  useEffect(() => {
+>>>>>>> 9817b9c (feat: atualização da acessibilidade e leitura por voz)
     // Simular carregamento inicial
     setTimeout(() => {
       if (dataManager.isLoggedIn()) {

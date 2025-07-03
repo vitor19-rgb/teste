@@ -629,4 +629,13 @@ body.dark-mode *:focus {
 /* Remove bordas azuis específicas no modo escuro */
 body.dark-mode *:focus:not(input):not(select):not(textarea):not(button) {
   outline: none !important;
+<<<<<<< HEAD
 }
+=======
+}
+body.voice-reading-active::before {
+
+  /* ...restante do estilo... */
+}
+.accessibility-option-button[data-setting="voiceReading"] { /* ... */ }
+>>>>>>> 9817b9c (feat: atualização da acessibilidade e leitura por voz)

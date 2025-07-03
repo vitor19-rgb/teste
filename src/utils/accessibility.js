@@ -7,6 +7,12 @@
 class AccessibilityManager {
   constructor() {
     this.settings = this.loadSettings();
+<<<<<<< HEAD
+=======
+    this.speechSynthesis = window.speechSynthesis;
+    this.isReading = false;
+    this.currentUtterance = null;
+>>>>>>> 9817b9c (feat: atualização da acessibilidade e leitura por voz)
     this.init();
   }
 
@@ -113,10 +119,18 @@ class AccessibilityManager {
                 ${this.settings.largeFont ? 'Ativo' : 'Inativo'}
               </button>
             </div>
+<<<<<<< HEAD
             <div class="accessibility-option">
               <span class="accessibility-option-label">Modo Padrão</span>
               <button class="accessibility-option-button" data-action="default">Restaurar</button>
             </div>
+=======
+          
+<div class="accessibility-option">
+  <span class="accessibility-option-label">Leitura por Voz</span>
+  <button class="accessibility-option-button" data-action="voiceReading">${this.isReading ? 'Parar' : 'Iniciar'}</button>
+</div>
+>>>>>>> 9817b9c (feat: atualização da acessibilidade e leitura por voz)
             <div class="accessibility-option">
               <span class="accessibility-option-label">Redefinir Tudo</span>
               <button class="accessibility-option-button" data-action="reset">Redefinir</button>
@@ -199,6 +213,7 @@ class AccessibilityManager {
     this.announceToScreenReader('Modal de acessibilidade fechado');
   }
 
+<<<<<<< HEAD
   handleOptionClick(e) {
     const button = e.target;
     const setting = button.dataset.setting;
@@ -214,6 +229,27 @@ class AccessibilityManager {
     }
   }
 
+=======
+ handleOptionClick(e) {
+  const button = e.target;
+  const setting = button.dataset.setting;
+  const action = button.dataset.action;
+
+  if (setting) {
+    this.toggleSetting(setting);
+    this.updateButtonState(button, setting);
+  } else if (action === 'voiceReading') {
+    if (this.isReading) {
+      this.stopVoiceReading();
+    } else {
+      this.startVoiceReading();
+    }
+    this.updateVoiceButton();
+  } else if (action === 'reset') {
+    this.resetAllSettings();
+  }
+}
+>>>>>>> 9817b9c (feat: atualização da acessibilidade e leitura por voz)
   toggleSetting(setting) {
     this.settings[setting] = !this.settings[setting];
     this.saveSettings();
@@ -273,7 +309,73 @@ class AccessibilityManager {
       });
     }
   }
+<<<<<<< HEAD
 
+=======
+  // ...dentro da classe AccessibilityManager...
+
+startVoiceReading() {
+  if (this.isReading) return;
+  const text = this.extractPageText();
+  if (!text) {
+    this.showToast('Nada para ler na página', 'error');
+    return;
+  }
+  this.isReading = true;
+   this.showToast('Leitura por voz ativada', 'success');
+  document.body.classList.add('voice-reading-active');
+  this.currentUtterance = new SpeechSynthesisUtterance(text);
+  this.currentUtterance.lang = 'pt-BR';
+  this.currentUtterance.rate = 1;
+  this.currentUtterance.onend = () => {
+    this.isReading = false;
+    document.body.classList.remove('voice-reading-active');
+    this.updateVoiceButton();
+  };
+  this.currentUtterance.onerror = () => {
+    this.isReading = false;
+    document.body.classList.remove('voice-reading-active');
+    this.updateVoiceButton();
+    this.showToast('Erro na leitura por voz', 'error');
+  };
+  this.speechSynthesis.speak(this.currentUtterance);
+  this.updateVoiceButton();
+}
+
+stopVoiceReading() {
+  if (!this.isReading) return;
+  this.speechSynthesis.cancel();
+  this.isReading = false;
+  document.body.classList.remove('voice-reading-active');
+  this.updateVoiceButton();
+}
+
+extractPageText() {
+  // Pegue o main, se existir, senão o body
+  const main = document.querySelector('main') || document.body;
+  // Clone para manipular sem afetar o DOM
+  const clone = main.cloneNode(true);
+
+  // Remova links e elementos indesejados do clone
+  const skipLinks = clone.querySelectorAll('.skip-link, nav, footer, .accessibility-btn, .accessibility-modal');
+  skipLinks.forEach(el => el.remove());
+
+  // Retorna só o texto visível
+  return clone.innerText || '';
+}
+
+updateVoiceButton() {
+  const modal = document.getElementById('accessibility-modal');
+  if (modal) {
+    const btn = modal.querySelector('[data-action="voiceReading"]');
+    if (btn) {
+      btn.textContent = this.isReading ? 'Parar' : 'Iniciar';
+      btn.setAttribute('aria-pressed', this.isReading);
+      btn.classList.toggle('active', this.isReading); // <-- Isso deixa verde se já houver CSS para .active
+    }
+  }
+}
+>>>>>>> 9817b9c (feat: atualização da acessibilidade e leitura por voz)
   applySettings() {
     // Remove all accessibility classes first
     document.body.classList.remove('high-contrast', 'dark-mode', 'large-font');
